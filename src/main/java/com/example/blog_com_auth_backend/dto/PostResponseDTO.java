@@ -12,6 +12,7 @@ public class PostResponseDTO {
     private String conteudo;
     private String autor;
     private LocalDateTime createdAt;
+    private String errorMessage;
 
     public PostResponseDTO(Post post) {
         this.id = post.getId();
@@ -19,5 +20,10 @@ public class PostResponseDTO {
         this.conteudo = post.getConteudo();
         this.autor = post.getAutor().getName();
         this.createdAt = post.getCreatedAt();
+    }
+
+    // Construtor para erro, quando não há post
+    public PostResponseDTO(String errorMessage) {
+        this.errorMessage = errorMessage;
     }
 }
