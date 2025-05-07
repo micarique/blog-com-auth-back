@@ -24,7 +24,7 @@ public class Post {
     @Column(columnDefinition = "TEXT")
     private String conteudo;
 
-    private LocalDateTime dataCriacao;
+    private LocalDateTime createdAt;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "autor_id")
