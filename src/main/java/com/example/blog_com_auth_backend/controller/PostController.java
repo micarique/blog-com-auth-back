@@ -1,6 +1,7 @@
 package com.example.blog_com_auth_backend.controller;
 
 import com.example.blog_com_auth_backend.dto.PostDTO;
+import com.example.blog_com_auth_backend.dto.PostResponseDTO;
 import com.example.blog_com_auth_backend.model.Post;
 import com.example.blog_com_auth_backend.service.PostService;
 import jakarta.validation.Valid;
@@ -21,7 +22,7 @@ public class PostController {
 
     // Endpoint público para listar posts
     @GetMapping
-    public List<Post> listPost() {
+    public List<PostResponseDTO> listPost() {
         return postService.listPost();
     }
 

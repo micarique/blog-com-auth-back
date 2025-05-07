@@ -1,6 +1,7 @@
 package com.example.blog_com_auth_backend.service;
 
 import com.example.blog_com_auth_backend.dto.PostDTO;
+import com.example.blog_com_auth_backend.dto.PostResponseDTO;
 import com.example.blog_com_auth_backend.model.Post;
 import com.example.blog_com_auth_backend.model.User;
 import com.example.blog_com_auth_backend.repository.PostRepository;
@@ -22,8 +23,10 @@ public class PostService {
     @Autowired
     private UserRepository userRepository;
 
-    public List<Post> listPost() {
-        return postRepository.findAllByOrderByCreatedAtDesc();
+    public List<PostResponseDTO> listPost() {
+        return postRepository.findAllByOrderByCreatedAtDesc().stream()
+                .map(PostResponseDTO::new)
+                .toList();
     }
 
     public ResponseEntity<Post> searchPost(Long id) {
