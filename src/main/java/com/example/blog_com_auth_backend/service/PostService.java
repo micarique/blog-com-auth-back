@@ -25,21 +25,21 @@ public class PostService {
     @Autowired
     private UserRepository userRepository;
 
-    // Listar posts
+    // Listar posts (Não requer autenticação)
     public List<PostResponseDTO> listPost() {
         return postRepository.findAllByOrderByCreatedAtDesc().stream()
                 .map(PostResponseDTO::new)
                 .toList();
     }
 
-    // Buscar post por ID
+    // Buscar post por ID (Não requer autenticação)
     public ResponseEntity<PostResponseDTO> searchPost(Long id) {
         return postRepository.findById(id)
                 .map(post -> ResponseEntity.ok(new PostResponseDTO(post)))
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    // Criar post
+    // Criar post (Requer autenticação)
     public ResponseEntity<PostResponseDTO> createPost(PostRequestDTO dto, UserDetails userDetails) {
         User autor = userRepository.findByEmail(userDetails.getUsername()).orElseThrow();
         Post post = Post.builder()
@@ -52,7 +52,7 @@ public class PostService {
         return ResponseEntity.ok(new PostResponseDTO(savedPost));  // Retorna o DTO do Post
     }
 
-    // Atualizar post
+    // Atualizar post (Requer autenticação)
     public ResponseEntity<PostResponseDTO> updatePost(Long id, PostRequestDTO dto, UserDetails userDetails) {
         return postRepository.findById(id).map(post -> {
             // Verifica se o usuário autenticado é o autor do post
@@ -73,7 +73,7 @@ public class PostService {
         }).orElse(ResponseEntity.notFound().build()); // Se não encontrar o post, retorna 404
     }
 
-    // Deletar post
+    // Deletar post (Requer autenticação)
     public ResponseEntity<Void> deletePost(Long id, UserDetails userDetails) {
         // Encontre o post pelo ID
         return postRepository.findById(id)
