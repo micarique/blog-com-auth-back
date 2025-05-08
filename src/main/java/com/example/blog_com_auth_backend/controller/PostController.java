@@ -26,6 +26,12 @@ public class PostController {
         return postService.listPost();
     }
 
+    // Endpoint privado para listar apenas posts do usuário
+    @GetMapping("/me")
+    public List<PostResponseDTO> listUserPosts(@AuthenticationPrincipal UserDetails userDetails) {
+        return postService.listUserPosts(userDetails);
+    }
+
     // Endpoint público para obter post por ID
     @GetMapping("/{id}")
     public ResponseEntity<PostResponseDTO> searchPost(@PathVariable Long id) {

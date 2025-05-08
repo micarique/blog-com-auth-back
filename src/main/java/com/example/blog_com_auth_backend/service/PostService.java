@@ -10,11 +10,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class PostService {
@@ -37,6 +37,17 @@ public class PostService {
         return postRepository.findById(id)
                 .map(post -> ResponseEntity.ok(new PostResponseDTO(post)))
                 .orElse(ResponseEntity.notFound().build());
+    }
+
+    // Listar apenas posts do autor para CRUD (Requer autenticação)
+    public List<PostResponseDTO> listUserPosts(UserDetails userDetails) {
+        String email = userDetails.getUsername();
+        User autor = userRepository.findByEmail(email)
+                .orElseThrow(() -> new UsernameNotFoundException("Usuário não encontrado"));
+
+        List<Post> posts = postRepository.findByAutorOrderByCreatedAtDesc(autor);
+
+        return posts.stream().map(PostResponseDTO::new).toList();
     }
 
     // Criar post (Requer autenticação)
