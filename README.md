@@ -15,7 +15,7 @@ Esta é a API RESTful do projeto **CodeSocial**, desenvolvida com **Spring Boot*
 - Lombok
 
 ---
-
+```bash
 ## 📦 Executando o Projeto
 
 # Navegar para a pasta backend
