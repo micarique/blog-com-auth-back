@@ -24,9 +24,8 @@ Esta é a API RESTful do projeto **CodeSocial**, desenvolvida com **Spring Boot*
 
 ## 📦 Executando o Projeto
 
-```bash
 # Navegar para a pasta backend
-cd backend
+cd blog-com-auth-backend
 
 # Rodar via Maven
 ./mvnw spring-boot:run
@@ -59,7 +58,7 @@ backend/
 ├── model/ *Contém as entidades do sistema, geralmente anotadas com @Entity. Representam as tabelas do banco de dados e os objetos de domínio.*
 ├── repository/ *Contém as interfaces que acessam o banco de dados, geralmente estendendo JpaRepository. Responsáveis por operações como salvar, buscar, deletar, etc.
 ├── security/ *Contém classes relacionadas à segurança da aplicação, como configuração do Spring Security, filtros de autenticação, geração e validação de JWTs.*
-├── service/ *Contém a lógica de negócio da aplicação. Essas classes são chamadas pelos controllers para executar as ações principais, como regras de validação, chamadas ao repositório, processamento de dados.
+├── service/ *Contém a lógica de negócio da aplicação. Essas classes são chamadas pelos controllers para executar as ações principais, como regras de validação, chamadas ao repositório, processamento de dados.*
 └── BlogComAuthApplication.java
 
 💬 Observações
