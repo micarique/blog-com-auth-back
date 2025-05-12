@@ -63,4 +63,4 @@ Permite escalabilidade e integração com qualquer front-end moderno
 Código limpo e comentado, com foco didático e profissional
 
 ✍️ Desenvolvido por
-Micael Machado • Desenvolvedor fullstack apaixonado por soluções seguras, escaláveis e com propósito.
+Micael Machado • Desenvolvedor fullstack com foco em usabilidade, boas práticas e soluções modernas.
