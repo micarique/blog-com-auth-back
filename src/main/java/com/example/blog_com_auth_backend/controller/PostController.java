@@ -2,7 +2,6 @@ package com.example.blog_com_auth_backend.controller;
 
 import com.example.blog_com_auth_backend.dto.PostRequestDTO;
 import com.example.blog_com_auth_backend.dto.PostResponseDTO;
-import com.example.blog_com_auth_backend.model.Post;
 import com.example.blog_com_auth_backend.service.PostService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

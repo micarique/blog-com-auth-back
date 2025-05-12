@@ -10,7 +10,9 @@ public class PostResponseDTO {
     private Long id;
     private String titulo;
     private String conteudo;
-    private String autor;
+    private String authorEmail;
+    private String authorId;
+    private String authorName;
     private LocalDateTime createdAt;
     private String errorMessage;
 
@@ -18,7 +20,9 @@ public class PostResponseDTO {
         this.id = post.getId();
         this.titulo = post.getTitulo();
         this.conteudo = post.getConteudo();
-        this.autor = post.getAutor().getName();
+        this.authorEmail = post.getAutor().getEmail();
+        this.authorId = post.getAutor().getId();
+        this.authorName = post.getAutor().getName();
         this.createdAt = post.getCreatedAt();
     }
 
