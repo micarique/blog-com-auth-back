@@ -1,9 +1,3 @@
-
----
-
-### 📁 `backend/README.md`
-
-```markdown
 # 🔙 CodeSocial — API Back-end
 
 Esta é a API RESTful do projeto **CodeSocial**, desenvolvida com **Spring Boot** e banco de dados **PostgreSQL**. Ela fornece autenticação JWT, segurança com Spring Security e endpoints protegidos para gerenciamento de posts.
