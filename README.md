@@ -1,7 +1,7 @@
 
 ---
 
-### 📁 3. `backend/README.md`
+### 📁 `backend/README.md`
 
 ```markdown
 # 🔙 CodeSocial — API Back-end
